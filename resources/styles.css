@@ -1,13 +1,79 @@
-.background {
-  viewport-fill: red;
-}
-
-#myLabel {
+#timeLabel {
   font-size: 80;
   font-family: System-Bold;
   text-length: 32;
   text-anchor: middle;
   x: 50%;
   y: 50%+40;
+  fill: white;
+}
+
+#batteryLabel {
+  font-size: 24;
+  text-length: 12;
+  text-anchor: start;
+  x: 5%;
+  y: 10%;
+  fill: white;
+}
+
+#batteryImage {
+  width: 8%;
+  height: 8%;
+  x: 21%;
+  y: 3%;
+  fill: lightgreen;
+}
+
+#dateLabel {
+  font-size: 24;
+  text-length: 12;
+  text-anchor: middle;
+  x: 33%;
+  y: 90%;
+  fill: white;
+}
+
+#heartRateLabel {
+  font-size: 24;
+  text-length: 12;
+  text-anchor: end;
+  x: 90%;
+  y: 10%;
+  fill: white;
+}
+
+#heartRateImage {
+  width: 8%;
+  height: 8%;
+  x: 70%;
+  y: 3%;
+  fill: lightcoral;
+}
+
+#stepsLabel {
+  font-size: 24;
+  text-length: 12;
+  text-anchor: middle;
+  x: 66%;
+  y: 90%;
+  fill: white;
+}
+
+#stepsImage {
+  width: 8%;
+  height: 8%;
+  x: 78%;
+  y: 84%;
+  fill: white;
+}
+
+#divider {
+  font-size: 30;
+  font-family: System-Light;
+  text-length: 1;
+  text-anchor: middle;
+  x: 50%;
+  y: 91%;
   fill: white;
 }

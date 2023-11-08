@@ -1,3 +1,13 @@
 <svg>
   <text id="myLabel" />
+  <text id="batteryLabel" />
+  <image id="batteryImage" href="images/battery.png" />
+
+  <text id="dateLabel" />
+  <text id="divider" />
+  <text id="stepsLabel" />
+  <image id="stepsImage" href="images/steps.png" />
+
+  <image id="heartRateImage" href="images/heart_solid.png" />
+  <text id="heartRateLabel" />
 </svg>
