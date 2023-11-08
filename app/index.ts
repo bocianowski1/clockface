@@ -1,7 +1,6 @@
 import clock from "clock";
 import document from "document";
-// show battery level, steps, and heart rate
-import { battery, charger } from "power";
+import { battery } from "power";
 import { HeartRateSensor } from "heart-rate";
 import { today } from "user-activity";
 
@@ -24,16 +23,18 @@ clock.ontick = (evt) => {
 
   hours = zeroPad(hours);
   let mins = zeroPad(today.getMinutes());
-  timeLabel.text = `${hours}:${mins}`;
+  if (timeLabel) timeLabel.text = `${hours}:${mins}`;
 };
 
 // show battery level
 const batteryLabel = document.getElementById("batteryLabel");
-batteryLabel.text = `${Math.floor(battery.chargeLevel)}%`;
-
-battery.onchange = () => {
+if (batteryLabel) {
   batteryLabel.text = `${Math.floor(battery.chargeLevel)}%`;
-};
+
+  battery.onchange = () => {
+    batteryLabel.text = `${Math.floor(battery.chargeLevel)}%`;
+  };
+}
 
 // show date
 const dateLabel = document.getElementById("dateLabel");
@@ -53,23 +54,28 @@ const months = [
 const todayDate = new Date();
 const month = months[todayDate.getMonth() - 1];
 const date = todayDate.getDate();
-dateLabel.text = `${date}. ${month}`;
+if (dateLabel) dateLabel.text = `${date}. ${month}`;
 
-// show heart rate
+// @ts-ignore
 const hrm = new HeartRateSensor();
 hrm.start();
+
 const heartRateLabel = document.getElementById("heartRateLabel");
-hrm.onreading = () => {
-  heartRateLabel.text = `${hrm.heartRate}`;
-};
+if (heartRateLabel) {
+  hrm.onreading = () => {
+    heartRateLabel.text = `${hrm.heartRate}`;
+  };
+}
 
 // show steps
 const stepsLabel = document.getElementById("stepsLabel");
-stepsLabel.text = `${today.local.steps}`;
-
-today.local.onchange = () => {
+if (stepsLabel) {
   stepsLabel.text = `${today.local.steps}`;
-};
 
+  // @ts-ignore
+  today.local.onchange = () => {
+    stepsLabel.text = `${today.local.steps}`;
+  };
+}
 const divider = document.getElementById("divider");
-divider.text = "|";
+if (divider) divider.text = "|";
